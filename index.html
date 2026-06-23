@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Beasy Crop v4.0 — The No.1 Ultimate Professional ID Tool</title>
+<title>Beasy Crop v4.0 — Free Ultimate ID Tool</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
@@ -17,26 +17,21 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.5/dist/signature_pad.umd.min.js"></script>
 <style>
-[span_0](start_span)/* CSS Variables and Theme Management[span_0](end_span) */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 :root{
   --bg:#f0f4f8;--panel:rgba(255,255,255,0.95);--text:#0f172a;--sub:#64748b;
-  --border:#e2e8f0;--card:#fff;--inp:#f8fafc;--acc:#4f46e5;--acc2:#2563eb;
+  --border:#e2e8f0;--card:#ffffff;--inp:#f8fafc;--acc:#4f46e5;--acc2:#2563eb;
   --accl:#e0e7ff;--acct:#4338ca;--shadow:0 25px 50px -12px rgba(0,0,0,0.12);
-  --green:#059669;--red:#dc2626;--orange:#f59e0b;
 }
 [data-theme="dark"]{
   --bg:#0a0f1e;--panel:rgba(10,15,30,0.95);--text:#f1f5f9;--sub:#94a3b8;
   --border:#1e293b;--card:#111827;--inp:#0f172a;--acc:#818cf8;--acc2:#60a5fa;
   --accl:#1e1b4b;--acct:#a5b4fc;--shadow:0 25px 50px -12px rgba(0,0,0,0.6);
-  --green:#10b981;--red:#f87171;--orange:#fbbf24;
 }
-[span_1](start_span)/* Base Styles[span_1](end_span) */
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:22px 22px;margin:0;overscroll-behavior-y:contain;color:var(--text);transition:background .3s,color .3s;min-height:100vh}
 .glass{background:var(--panel);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:var(--shadow);max-width:1200px;margin:0 auto;border:1px solid var(--border);border-radius:24px;overflow:hidden;transition:background .3s}
 
-[span_2](start_span)/* Cropper Enhancements[span_2](end_span) */
 .img-container{position:relative;max-width:100%;max-height:55vh;overflow:hidden;border-radius:16px;touch-action:none;background:var(--card)}
 .cropper-view-box{outline:3px solid var(--acc)!important;box-shadow:0 0 0 4000px rgba(0,0,0,0.6)!important}
 .cropper-dashed{border-color: rgba(255,255,255,0.9) !important;}
@@ -50,22 +45,17 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);background-
 .cropper-point.point-sw { margin-left: -11px !important; margin-bottom: -11px !important; }
 .cropper-point.point-se { margin-right: -11px !important; margin-bottom: -11px !important; }
 
-[span_3](start_span)/* Perfect Lock[span_3](end_span) */
 .movement-locked .cropper-face { pointer-events: none !important; cursor: default !important; }
 .movement-locked .cropper-drag-box { pointer-events: none !important; }
 
-[span_4](start_span)/* Range Sliders[span_4](end_span) */
 input[type=range]{-webkit-appearance:none;width:100%;background:transparent}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;height:22px;width:22px;border-radius:50%;background:var(--acc);cursor:pointer;margin-top:-9px;box-shadow:0 4px 10px rgba(0,0,0,.3);transition:transform .1s}
 input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.1)}
 input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:pointer;background:var(--border);border-radius:4px}
 
-[span_5](start_span)/* UI Elements[span_5](end_span) */
 .btn{transition:all .2s cubic-bezier(.4,0,.2,1);cursor:pointer;position:relative;overflow:hidden}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 20px -5px rgba(0,0,0,.15)}
 .btn:active{transform:translateY(0)}
-.btn::after {content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,0.2);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.3s, height 0.3s;}
-.btn:active::after {width:200px;height:200px;}
 
 .loader-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.8);backdrop-filter:blur(15px);z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff}
 .spinner{border:5px solid rgba(255,255,255,0.2);border-left-color:var(--acc);border-radius:50%;width:65px;height:65px;animation:spin .8s linear infinite;margin-bottom:20px}
@@ -76,11 +66,11 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
 .scroll::-webkit-scrollbar-thumb{background:var(--sub);border-radius:8px}
 .hidden-el{display:none!important}
 
-.preset{cursor:pointer;transition:all .2s;user-select:none;border:2px solid var(--border);background:var(--card);color:var(--sub);font-size:12px;font-weight:700;padding:8px 16px;border-radius:30px}
+.preset{cursor:pointer;transition:all .2s;user-select:none;border:2px solid var(--border);background:var(--card);color:var(--text);font-size:12px;font-weight:700;padding:8px 16px;border-radius:30px}
 .preset.on{background:var(--acc);color:#fff;border-color:var(--acc);box-shadow:0 4px 12px rgba(79,70,229,0.3)}
 .preset:hover:not(.on){border-color:var(--acc);color:var(--acc)}
 
-.qbtn{border:2px solid var(--border);background:var(--card);color:var(--sub);transition:all .2s;cursor:pointer;border-radius:14px;padding:10px;font-size:12px;font-weight:800;text-align:center}
+.qbtn{border:2px solid var(--border);background:var(--card);color:var(--text);transition:all .2s;cursor:pointer;border-radius:14px;padding:10px;font-size:12px;font-weight:800;text-align:center}
 .qbtn.on{border-color:var(--acc);background:var(--accl);color:var(--acc);box-shadow:0 4px 12px rgba(79,70,229,0.2)}
 
 .qitem{transition:all .2s;border:2px solid var(--border);background:var(--card);border-radius:16px;padding:12px 16px}
@@ -88,7 +78,6 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
 .qitem.dragging{opacity:.4;border-style:dashed;border-color:var(--acc)}
 .qitem.drag-over{border-color:var(--acc);background:var(--accl)}
 
-[span_6](start_span)/* Progress and Switches[span_6](end_span) */
 .pfill{transition:width .2s ease}
 .sw{position:relative;display:inline-flex;align-items:center;cursor:pointer}
 .sw input{position:absolute;opacity:0;width:0;height:0}
@@ -100,13 +89,9 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
 .locked-preview-container {width:100%;aspect-ratio:85.6/54;overflow:hidden;border-radius:14px;background:var(--inp);border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;position:relative;}
 .locked-preview-container canvas {max-width:100%;max-height:100%;object-fit:contain;transition:all 0.3s;}
 
-/* Pro Badge */
-.pro-badge {background:linear-gradient(135deg,#f59e0b,#d97706);color:white;font-size:10px;font-weight:900;padding:2px 8px;border-radius:12px;text-transform:uppercase;letter-spacing:1px;box-shadow:0 2px 8px rgba(245,158,11,0.4);}
-.pro-feature {opacity:0.6; pointer-events:none; position:relative;}
-.pro-feature::after {content:'PRO'; position:absolute; top:-8px; right:-8px; background:#f59e0b; color:#fff; font-size:9px; font-weight:bold; padding:2px 6px; border-radius:8px;}
-
-/* Signature Modal */
 #sigPadCanvas {border:2px dashed var(--border); border-radius:12px; background:var(--card); cursor:crosshair; touch-action:none;}
+.inp{background:var(--inp);border:1.5px solid var(--border);color:var(--text);border-radius:12px;padding:10px 14px;font-weight:600;outline:none;width:100%;font-family:inherit}
+.inp:focus{border-color:var(--acc)}
 </style>
 </head>
 <body class="p-3 md:p-6 min-h-screen relative">
@@ -114,10 +99,10 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
 <div id="hbdrop" onclick="closeHist()" class="hidden-el fixed inset-0 z-[8999] bg-gray-900/50 backdrop-blur-sm"></div>
 <div id="hist" class="fixed top-0 right-[-400px] w-full max-w-[380px] h-screen bg-[var(--card)] border-l border-[var(--border)] z-[9000] transition-all duration-300 overflow-y-auto shadow-2xl p-6">
   <div class="flex items-center justify-between mb-6">
-    <h2 class="font-black text-xl dtxt"><i class="fa-solid fa-clock-rotate-left mr-2" style="color:var(--acc)"></i>Recent Sessions</h2>
-    <button onclick="closeHist()" class="dsub hover:text-red-500 text-2xl btn"><i class="fa-solid fa-xmark"></i></button>
+    <h2 class="font-black text-xl text-[var(--text)]"><i class="fa-solid fa-clock-rotate-left mr-2" style="color:var(--acc)"></i>Recent Sessions</h2>
+    <button onclick="closeHist()" class="text-[var(--sub)] hover:text-red-500 text-2xl btn"><i class="fa-solid fa-xmark"></i></button>
   </div>
-  <p class="text-xs font-semibold dsub mb-4 bg-[var(--inp)] p-3 rounded-xl border border-[var(--border)]"><i class="fa-solid fa-hard-drive mr-1 text-indigo-500"></i> Last 10 sessions stored securely on device. Thumbnails auto-expire to protect privacy.</p>
+  <p class="text-xs font-semibold text-[var(--sub)] mb-4 bg-[var(--inp)] p-3 rounded-xl border border-[var(--border)]">Last 10 sessions stored securely on device.</p>
   <div id="histList" class="space-y-3"></div>
   <button onclick="clearHist()" class="mt-6 w-full py-3 rounded-xl text-sm font-black bg-red-50 text-red-600 border border-red-200 hover:bg-red-100 btn"><i class="fa-solid fa-trash mr-1"></i> Clear All History</button>
 </div>
@@ -129,7 +114,7 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
       <button onclick="closeModals()" class="text-white btn"><i class="fa-solid fa-xmark text-xl"></i></button>
     </div>
     <div class="bg-emerald-50/50 p-3 text-xs text-emerald-700 font-bold border-b border-emerald-100 flex items-center gap-2 justify-center">
-      <i class="fa-solid fa-shield-halved text-emerald-500"></i> 100% Secure P2P — Zero Server Storage
+      <i class="fa-solid fa-shield-halved text-emerald-500"></i> Secure P2P — Zero Server Storage
     </div>
     <div class="p-8 flex flex-col justify-center items-center relative min-h-[380px]">
       <div id="recvLoad" class="absolute inset-0 bg-[var(--card)] flex flex-col justify-center items-center z-10 hidden-el">
@@ -137,10 +122,10 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
       </div>
       <div id="recvContent" class="w-full flex flex-col items-center">
         <p class="font-black mb-6 text-center text-base text-[var(--text)]">📱 Scan QR on Phone → Instant Transfer!</p>
-        <div id="qrBox" class="p-4 bg-white rounded-3xl shadow-lg border border-gray-100 mb-6"></div>
+        <div id="qrBox" class="p-4 bg-[var(--card)] rounded-3xl shadow-lg border border-[var(--border)] mb-6"></div>
         <p class="text-xs font-bold text-[var(--sub)] mb-2 w-full text-left uppercase tracking-wider">Or paste this link on phone:</p>
         <div class="flex gap-2 w-full">
-          <input type="text" id="recvLink" readonly class="bg-[var(--inp)] border border-[var(--border)] text-[var(--text)] rounded-xl p-3 text-xs font-semibold w-full outline-none focus:border-indigo-500">
+          <input type="text" id="recvLink" readonly class="inp text-xs font-semibold w-full">
           <button onclick="copyTxt('recvLink')" class="btn px-5 rounded-xl font-black text-white text-sm bg-indigo-600 hover:bg-indigo-700"><i class="fa-regular fa-copy"></i></button>
         </div>
       </div>
@@ -157,13 +142,13 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
         <canvas id="sigPadCanvas" width="450" height="200" class="w-full"></canvas>
         <div class="flex justify-between items-center mt-4">
             <div class="flex gap-2">
-                <button onclick="sigPad.penColor='black'" class="w-8 h-8 rounded-full bg-black border-2 border-gray-300 btn"></button>
-                <button onclick="sigPad.penColor='blue'" class="w-8 h-8 rounded-full bg-blue-600 border-2 border-gray-300 btn"></button>
-                <button onclick="sigPad.penColor='red'" class="w-8 h-8 rounded-full bg-red-600 border-2 border-gray-300 btn"></button>
+                <button onclick="sigPad.penColor='black'" class="w-10 h-10 rounded-full bg-black border-2 border-gray-300 btn"></button>
+                <button onclick="sigPad.penColor='blue'" class="w-10 h-10 rounded-full bg-blue-600 border-2 border-gray-300 btn"></button>
+                <button onclick="sigPad.penColor='red'" class="w-10 h-10 rounded-full bg-red-600 border-2 border-gray-300 btn"></button>
             </div>
             <div class="flex gap-2">
-                <button onclick="sigPad.clear()" class="px-4 py-2 rounded-xl text-sm font-bold bg-[var(--inp)] text-[var(--sub)] btn">Clear</button>
-                <button onclick="applySignature()" class="px-6 py-2 rounded-xl text-sm font-bold bg-indigo-600 text-white btn">Apply</button>
+                <button onclick="sigPad.clear()" class="px-5 py-3 rounded-xl text-sm font-bold bg-[var(--inp)] text-[var(--text)] btn">Clear</button>
+                <button onclick="applySignature()" class="px-6 py-3 rounded-xl text-sm font-bold bg-indigo-600 text-white btn">Apply</button>
             </div>
         </div>
     </div>
@@ -187,18 +172,18 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
         <i class="fa-solid fa-id-card-clip text-3xl text-yellow-300 drop-shadow-md"></i>
       </div>
       <div>
-        <h1 class="text-2xl md:text-3xl font-black tracking-tight drop-shadow-md">Beasy Crop <span class="text-[10px] font-black bg-white text-indigo-600 px-2 py-1 rounded-full ml-2 shadow-sm align-middle">v4.0 PRO</span></h1>
-        <p class="text-indigo-100 text-sm font-semibold hidden md:block mt-1 tracking-wide">The No.1 Ultimate Professional ID Document Tool</p>
+        <h1 class="text-2xl md:text-3xl font-black tracking-tight drop-shadow-md">Beasy Crop <span class="text-[10px] font-black bg-white text-indigo-600 px-2 py-1 rounded-full ml-2 shadow-sm align-middle">v4.0</span></h1>
+        <p class="text-indigo-100 text-sm font-semibold hidden md:block mt-1 tracking-wide">The Free Ultimate Professional ID Tool</p>
       </div>
     </div>
     <div class="flex items-center gap-2 md:gap-3 relative z-10">
-      <button onclick="undo()" class="bg-white/10 hover:bg-white/20 p-3 rounded-xl transition border border-white/20 hidden lg:block tooltip-btn" title="Undo (Ctrl+Z)"><i class="fa-solid fa-rotate-left"></i></button>
-      <button onclick="redo()" class="bg-white/10 hover:bg-white/20 p-3 rounded-xl transition border border-white/20 hidden lg:block tooltip-btn" title="Redo (Ctrl+Y)"><i class="fa-solid fa-rotate-right"></i></button>
+      <button onclick="undo()" class="bg-white/10 hover:bg-white/20 p-3 md:p-4 rounded-xl transition border border-white/20 hidden lg:block" title="Undo (Ctrl+Z)"><i class="fa-solid fa-rotate-left"></i></button>
+      <button onclick="redo()" class="bg-white/10 hover:bg-white/20 p-3 md:p-4 rounded-xl transition border border-white/20 hidden lg:block" title="Redo (Ctrl+Y)"><i class="fa-solid fa-rotate-right"></i></button>
       <div class="h-8 w-px bg-white/20 hidden lg:block mx-1"></div>
-      <button onclick="toggleDark()" class="bg-white/10 hover:bg-white/20 p-3 rounded-xl transition border border-white/20 tooltip-btn" title="Toggle Theme"><i class="fa-solid fa-moon text-lg" id="darkIco"></i></button>
-      <button onclick="document.getElementById('hist').style.right='0';document.getElementById('hbdrop').classList.remove('hidden-el');renderHist()" class="bg-white/10 hover:bg-white/20 p-3 rounded-xl transition border border-white/20 hidden sm:block tooltip-btn" title="Session History"><i class="fa-solid fa-clock-rotate-left text-lg"></i></button>
+      <button onclick="toggleDark()" class="bg-white/10 hover:bg-white/20 p-3 md:p-4 rounded-xl transition border border-white/20" title="Toggle Theme"><i class="fa-solid fa-moon text-lg" id="darkIco"></i></button>
+      <button onclick="document.getElementById('hist').style.right='0';document.getElementById('hbdrop').classList.remove('hidden-el');renderHist()" class="bg-white/10 hover:bg-white/20 p-3 md:p-4 rounded-xl transition border border-white/20 hidden sm:block" title="Session History"><i class="fa-solid fa-clock-rotate-left text-lg"></i></button>
       
-      <button onclick="openRecv()" class="bg-white text-indigo-600 hover:bg-indigo-50 px-4 md:px-6 py-2.5 md:py-3 rounded-xl text-xs md:text-sm font-black flex items-center gap-2 transition shadow-xl border border-white/50 ml-2 btn">
+      <button onclick="openRecv()" class="bg-white text-indigo-600 hover:bg-indigo-50 px-4 md:px-6 py-3 md:py-4 rounded-xl text-xs md:text-sm font-black flex items-center gap-2 transition shadow-xl border border-white/50 ml-2 btn">
         <i class="fa-solid fa-laptop-arrow-down text-lg"></i><span class="hidden sm:inline">Receive PC</span>
       </button>
     </div>
@@ -206,29 +191,26 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
 
   <div class="py-2 px-5 text-xs font-black flex flex-wrap items-center justify-center gap-x-4 gap-y-2 bg-[var(--accl)] text-[var(--acct)] border-b border-[var(--border)] tracking-wide">
     <span><i class="fa-solid fa-wand-magic-sparkles text-amber-500 mr-1"></i> Studio Quality Output</span>
+    <span class="opacity-40">•</span><span>Free Forever</span>
     <span class="opacity-40">•</span><span>AI Smart Enhance</span>
-    <span class="opacity-40">•</span><span>6000px Ultra 4K</span>
-    <span class="opacity-40">•</span><span>300 DPI Print Ready</span>
-    <span class="opacity-40">•</span><span>Add Signatures</span>
+    <span class="opacity-40">•</span><span>Ultra 4K & Print Ready</span>
   </div>
 
   <div id="appGrid" class="p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-    
     <div class="lg:col-span-8 space-y-6">
       
       <div id="upArea" class="space-y-6 animate-fade-in">
         <div class="bg-[var(--card)] p-5 rounded-2xl border border-[var(--border)] shadow-sm">
           <div class="flex justify-between items-center mb-4">
-             <p class="text-sm font-black uppercase tracking-widest text-[var(--sub)]"><i class="fa-solid fa-ruler-combined mr-2"></i>Select Document Preset</p>
-             <span class="pro-badge">Included</span>
+             <p class="text-sm font-black uppercase tracking-widest text-[var(--text)]"><i class="fa-solid fa-ruler-combined mr-2"></i>Select Document Preset</p>
           </div>
           <div class="flex flex-wrap gap-2.5">
-            <button class="preset on hover:scale-105" onclick="selPreset(this,85.6,54,'Aadhar Card')">🇮🇳 Aadhar Card</button>
-            <button class="preset hover:scale-105" onclick="selPreset(this,85.6,54,'PAN Card')">🏦 PAN Card</button>
+            <button class="preset on hover:scale-105" onclick="selPreset(this,85.6,54,'Aadhar Card')">🇮🇳 Aadhar</button>
+            <button class="preset hover:scale-105" onclick="selPreset(this,85.6,54,'PAN Card')">🏦 PAN</button>
             <button class="preset hover:scale-105" onclick="selPreset(this,85.6,54,'Voter ID')">🗳️ Voter ID</button>
-            <button class="preset hover:scale-105" onclick="selPreset(this,85.6,54,'Driving Licence')">🚗 Driving Licence</button>
-            <button class="preset hover:scale-105" onclick="selPreset(this,35,45,'Passport Photo')">🛂 Passport Photo</button>
-            <button class="preset hover:scale-105" onclick="selPreset(this,0,0,'Custom Free')">✂️ Custom Size</button>
+            <button class="preset hover:scale-105" onclick="selPreset(this,85.6,54,'Driving Licence')">🚗 DL</button>
+            <button class="preset hover:scale-105" onclick="selPreset(this,35,45,'Passport Photo')">🛂 Passport</button>
+            <button class="preset hover:scale-105" onclick="selPreset(this,0,0,'Custom Free')">✂️ Custom</button>
           </div>
         </div>
 
@@ -239,9 +221,9 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
           </div>
           <h3 class="text-xl md:text-2xl font-black mb-2 text-[var(--text)]">Drag & Drop Document</h3>
           <p class="text-base font-medium text-[var(--sub)]">Supports PDF, JPG, PNG, WebP — High Res Recommended</p>
-          <div class="mt-6 flex justify-center gap-2">
-             <span class="text-xs font-bold bg-[var(--inp)] border border-[var(--border)] px-3 py-1 rounded-full text-[var(--sub)]">Multi-page PDF supported</span>
-             <span class="text-xs font-bold bg-[var(--inp)] border border-[var(--border)] px-3 py-1 rounded-full text-[var(--sub)]">Auto-detect edges (Pro)</span>
+          <div class="mt-6 flex flex-wrap justify-center gap-2">
+             <span class="text-xs font-bold bg-[var(--inp)] border border-[var(--border)] text-[var(--text)] px-3 py-1 rounded-full">Multi-page PDF supported</span>
+             <span class="text-xs font-bold bg-[var(--inp)] border border-[var(--border)] text-[var(--text)] px-3 py-1 rounded-full">Auto-detect edges</span>
           </div>
           <input type="file" id="fileIn" class="hidden" accept="application/pdf,image/jpeg,image/png,image/webp">
         </div>
@@ -249,12 +231,12 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
         <div class="flex items-center gap-4 px-4"><div class="flex-grow h-px bg-[var(--border)]"></div><span class="text-xs font-black text-[var(--sub)] uppercase tracking-wider">OR QUICK CAPTURE</span><div class="flex-grow h-px bg-[var(--border)]"></div></div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <button onclick="document.getElementById('camIn').click()" class="btn py-5 rounded-2xl font-bold flex flex-col items-center gap-3 text-sm bg-[var(--card)] border-2 border-[var(--border)] hover:border-blue-400 hover:shadow-lg transition-all group">
-            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform"><i class="fa-solid fa-camera text-2xl text-blue-500"></i></div>
+          <button onclick="document.getElementById('camIn').click()" class="btn py-6 rounded-2xl font-bold flex flex-col items-center gap-3 text-sm bg-[var(--card)] border-2 border-[var(--border)] hover:border-blue-400 hover:shadow-lg transition-all group">
+            <div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform"><i class="fa-solid fa-camera text-2xl text-blue-500"></i></div>
             <span class="text-[var(--text)]">High-Res Camera</span>
           </button>
-          <button onclick="pasteFromClipboard()" class="btn py-5 rounded-2xl font-bold flex flex-col items-center gap-3 text-sm bg-[var(--card)] border-2 border-[var(--border)] hover:border-purple-400 hover:shadow-lg transition-all group">
-            <div class="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center group-hover:scale-110 transition-transform"><i class="fa-solid fa-paste text-2xl text-purple-500"></i></div>
+          <button onclick="pasteFromClipboard()" class="btn py-6 rounded-2xl font-bold flex flex-col items-center gap-3 text-sm bg-[var(--card)] border-2 border-[var(--border)] hover:border-purple-400 hover:shadow-lg transition-all group">
+            <div class="w-14 h-14 rounded-full bg-purple-50 flex items-center justify-center group-hover:scale-110 transition-transform"><i class="fa-solid fa-paste text-2xl text-purple-500"></i></div>
             <span class="text-[var(--text)]">Paste from Clipboard (Ctrl+V)</span>
           </button>
         </div>
@@ -262,7 +244,6 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
       </div>
 
       <div id="wsArea" class="hidden-el space-y-5 animate-fade-in">
-        
         <div class="flex items-center gap-3 p-4 rounded-2xl bg-[var(--inp)] border border-[var(--border)] shadow-sm">
           <div class="flex items-center flex-1 gap-2">
             <div id="s1" class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black bg-[var(--acc)] text-white shadow-[0_0_0_4px_var(--accl)] transition-all">1</div>
@@ -271,98 +252,96 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
             <div id="sl2" class="flex-1 h-1.5 rounded-full bg-[var(--border)] transition-all"></div>
             <div id="s3" class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-black bg-[var(--border)] text-[var(--sub)] transition-all">✓</div>
           </div>
-          <span id="instrTxt" class="font-black text-base ml-4 text-[var(--text)] uppercase tracking-wide">Align FRONT Side</span>
-          <button onclick="resetForNext()" class="ml-4 w-10 h-10 rounded-full bg-red-50 text-red-500 hover:bg-red-500 hover:text-white flex items-center justify-center transition-colors btn tooltip-btn" title="Cancel & Restart"><i class="fa-solid fa-xmark text-lg"></i></button>
+          <span id="instrTxt" class="font-black text-base md:text-lg ml-4 text-[var(--text)] uppercase tracking-wide">Align FRONT Side</span>
+          <button onclick="resetForNext()" class="ml-4 w-12 h-12 rounded-full bg-red-50 text-red-500 hover:bg-red-500 hover:text-white flex items-center justify-center transition-colors btn" title="Cancel & Restart"><i class="fa-solid fa-xmark text-xl"></i></button>
         </div>
 
-        <div class="bg-[var(--card)] p-4 rounded-2xl border border-[var(--border)] shadow-sm space-y-4">
-            
+        <div class="bg-[var(--card)] p-4 rounded-2xl border border-[var(--border)] shadow-sm space-y-4 overflow-hidden">
             <div class="flex flex-wrap gap-2 justify-between items-center border-b border-[var(--border)] pb-4">
-                <div class="flex items-center gap-2">
-                    <button onclick="applySmartEnhance()" class="btn px-4 py-2 rounded-xl text-xs font-black shadow-md flex items-center gap-2 bg-gradient-to-r from-amber-400 to-orange-500 text-white hover:shadow-lg hover:scale-105 transition-all">
-                        <i class="fa-solid fa-wand-magic-sparkles animate-pulse"></i> AI Smart Enhance
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="applySmartEnhance()" class="btn px-4 py-2.5 rounded-xl text-xs font-black shadow-md flex items-center gap-2 bg-gradient-to-r from-amber-400 to-orange-500 text-white hover:shadow-lg hover:scale-105 transition-all">
+                        <i class="fa-solid fa-wand-magic-sparkles animate-pulse"></i> Smart Enhance
                     </button>
-                    <button onclick="removeWhiteBG()" class="btn px-4 py-2 rounded-xl text-xs font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)] hover:border-indigo-400 pro-feature">
+                    <button onclick="removeWhiteBG()" class="btn px-4 py-2.5 rounded-xl text-xs font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)] hover:border-indigo-400">
                         <i class="fa-solid fa-eraser text-indigo-500 mr-1"></i> Auto White BG
                     </button>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="openSigPad()" class="btn px-4 py-2 rounded-xl text-xs font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)] hover:border-indigo-400">
+                    <button onclick="openSigPad()" class="btn px-4 py-2.5 rounded-xl text-xs font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)] hover:border-indigo-400">
                         <i class="fa-solid fa-file-signature text-blue-500 mr-1"></i> Sign
                     </button>
-                    <button onclick="addTextOverlay()" class="btn px-4 py-2 rounded-xl text-xs font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)] hover:border-indigo-400">
+                    <button onclick="addTextOverlay()" class="btn px-4 py-2.5 rounded-xl text-xs font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)] hover:border-indigo-400">
                         <i class="fa-solid fa-t text-purple-500 mr-1"></i> Text
                     </button>
                 </div>
             </div>
 
             <div class="flex flex-wrap gap-2">
-               <div class="flex items-center gap-1.5 p-1.5 rounded-xl bg-[var(--inp)] border border-[var(--border)]">
-                  <button onclick="centerBox()" class="btn w-9 h-9 rounded-lg flex items-center justify-center text-[var(--sub)] hover:text-indigo-600 hover:bg-white tooltip-btn" title="Center Box"><i class="fa-solid fa-bullseye"></i></button>
-                  <button onclick="resetBox()" class="btn w-9 h-9 rounded-lg flex items-center justify-center text-[var(--sub)] hover:text-indigo-600 hover:bg-white tooltip-btn" title="Reset Crop"><i class="fa-solid fa-arrows-rotate"></i></button>
-                  <button onclick="straighten()" class="btn w-9 h-9 rounded-lg flex items-center justify-center text-[var(--sub)] hover:text-indigo-600 hover:bg-white tooltip-btn" title="Auto-Straighten"><i class="fa-solid fa-ruler-combined"></i></button>
+               <div class="flex items-center gap-1.5 p-1.5 rounded-xl bg-[var(--inp)] border border-[var(--border)] flex-wrap">
+                  <button onclick="centerBox()" class="btn w-10 h-10 rounded-lg flex items-center justify-center text-[var(--text)] hover:text-indigo-600 hover:bg-[var(--card)]" title="Center Box"><i class="fa-solid fa-bullseye"></i></button>
+                  <button onclick="resetBox()" class="btn w-10 h-10 rounded-lg flex items-center justify-center text-[var(--text)] hover:text-indigo-600 hover:bg-[var(--card)]" title="Reset Crop"><i class="fa-solid fa-arrows-rotate"></i></button>
+                  <button onclick="straighten()" class="btn w-10 h-10 rounded-lg flex items-center justify-center text-[var(--text)] hover:text-indigo-600 hover:bg-[var(--card)]" title="Auto-Straighten"><i class="fa-solid fa-ruler-combined"></i></button>
                   <div class="w-px h-6 bg-[var(--border)] mx-1"></div>
-                  <button onclick="rotImg(-90)" class="btn w-9 h-9 rounded-lg flex items-center justify-center text-[var(--sub)] hover:text-indigo-600 hover:bg-white tooltip-btn" title="Rotate Left"><i class="fa-solid fa-rotate-left"></i></button>
-                  <button onclick="rotImg(90)" class="btn w-9 h-9 rounded-lg flex items-center justify-center text-[var(--sub)] hover:text-indigo-600 hover:bg-white tooltip-btn" title="Rotate Right"><i class="fa-solid fa-rotate-right"></i></button>
-                  <button onclick="flipImg()" class="btn w-9 h-9 rounded-lg flex items-center justify-center text-[var(--sub)] hover:text-indigo-600 hover:bg-white tooltip-btn" title="Flip Horizontal"><i class="fa-solid fa-right-left"></i></button>
+                  <button onclick="rotImg(-90)" class="btn w-10 h-10 rounded-lg flex items-center justify-center text-[var(--text)] hover:text-indigo-600 hover:bg-[var(--card)]" title="Rotate Left"><i class="fa-solid fa-rotate-left"></i></button>
+                  <button onclick="rotImg(90)" class="btn w-10 h-10 rounded-lg flex items-center justify-center text-[var(--text)] hover:text-indigo-600 hover:bg-[var(--card)]" title="Rotate Right"><i class="fa-solid fa-rotate-right"></i></button>
+                  <button onclick="flipImg()" class="btn w-10 h-10 rounded-lg flex items-center justify-center text-[var(--text)] hover:text-indigo-600 hover:bg-[var(--card)]" title="Flip Horizontal"><i class="fa-solid fa-right-left"></i></button>
                </div>
                
                <div class="flex items-center gap-1.5 p-1.5 rounded-xl bg-[var(--inp)] border border-[var(--border)] ml-auto">
-                   <button id="mLock" onclick="setCropMode('lock')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-[var(--card)] text-[var(--acc)] shadow-sm border border-[var(--border)]"><i class="fa-solid fa-lock mr-1"></i>Fixed Ratio</button>
-                   <button id="mFree" onclick="setCropMode('free')" class="px-3 py-1.5 text-xs font-bold rounded-lg text-[var(--sub)] hover:text-[var(--text)]">✂️ Custom</button>
+                   <button id="mLock" onclick="setCropMode('lock')" class="px-4 py-2 text-xs font-bold rounded-lg bg-[var(--card)] text-[var(--acc)] shadow-sm border border-[var(--border)]"><i class="fa-solid fa-lock mr-1"></i>Fixed Ratio</button>
+                   <button id="mFree" onclick="setCropMode('free')" class="px-4 py-2 text-xs font-bold rounded-lg text-[var(--text)] hover:text-[var(--acc)]">✂️ Custom</button>
                </div>
                
-               <button onclick="togLock()" id="lockBtn" class="btn px-4 py-2 rounded-xl text-xs font-black text-emerald-600 bg-emerald-50 border border-emerald-200 ml-1 flex items-center gap-2" title="Lock Box Position">
+               <button onclick="togLock()" id="lockBtn" class="btn px-4 py-2 rounded-xl text-xs font-black text-emerald-600 bg-emerald-50 border border-emerald-200 ml-1 flex items-center gap-2">
                    <i class="fa-solid fa-unlock" id="lockIco"></i> Lock Image
                </button>
             </div>
             
-            <div class="flex gap-2">
-                <button onclick="togFilters()" class="btn flex-1 py-2 rounded-xl text-sm font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)] hover:border-[var(--acc)]"><i class="fa-solid fa-sliders text-indigo-500 mr-2"></i> Adjustments & Filters</button>
-                <button onclick="togPrev()" id="prevBtn" class="btn px-5 py-2 rounded-xl text-sm font-bold border-2 border-[var(--acc)] text-[var(--acc)] bg-[var(--accl)] tooltip-btn" title="Toggle Real-time Preview"><i class="fa-solid fa-eye mr-2"></i> Live Preview</button>
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-[var(--border)]">
+                <button onclick="togFilters()" class="btn flex-1 py-3 rounded-xl text-sm font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)] hover:border-[var(--acc)]"><i class="fa-solid fa-sliders text-indigo-500 mr-2"></i> Adjustments</button>
+                <button onclick="togPrev()" id="prevBtn" class="btn px-6 py-3 rounded-xl text-sm font-bold border-2 border-[var(--acc)] text-[var(--acc)] bg-[var(--accl)]"><i class="fa-solid fa-eye mr-2"></i> Live Preview</button>
             </div>
         </div>
 
         <div id="filterPanel" class="hidden-el p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] shadow-inner space-y-5">
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div class="flex flex-col items-center p-3 rounded-xl bg-[var(--inp)] border border-[var(--border)] hover:border-gray-400 transition-colors">
+                <div class="flex flex-col items-center p-3 rounded-xl bg-[var(--inp)] border border-[var(--border)]">
                   <span class="text-xs font-black mb-3 text-[var(--text)]">🖨️ Grayscale</span>
                   <label class="sw"><input type="checkbox" id="bwTog" onchange="applyFilters()"><div class="sw-track"></div><div class="sw-thumb"></div></label>
                 </div>
-                <div class="flex flex-col items-center p-3 rounded-xl bg-[var(--inp)] border border-[var(--border)] hover:border-indigo-400 transition-colors">
+                <div class="flex flex-col items-center p-3 rounded-xl bg-[var(--inp)] border border-[var(--border)]">
                   <span class="text-xs font-black mb-3 text-indigo-500">✨ Magic Fix</span>
                   <label class="sw"><input type="checkbox" id="magicTog" onchange="togMagic()"><div class="sw-track"></div><div class="sw-thumb"></div></label>
                 </div>
-                <div class="flex flex-col items-center p-3 rounded-xl bg-[var(--inp)] border border-[var(--border)] hover:border-amber-400 transition-colors">
+                <div class="flex flex-col items-center p-3 rounded-xl bg-[var(--inp)] border border-[var(--border)]">
                   <span class="text-xs font-black mb-3 text-amber-500">🔥 Vivid Pop</span>
                   <label class="sw"><input type="checkbox" id="vividTog" onchange="togVivid()"><div class="sw-track"></div><div class="sw-thumb"></div></label>
                 </div>
-                <div class="flex flex-col items-center p-3 rounded-xl bg-[var(--inp)] border border-[var(--border)] hover:border-rose-400 transition-colors">
+                <div class="flex flex-col items-center p-3 rounded-xl bg-[var(--inp)] border border-[var(--border)]">
                   <span class="text-xs font-black mb-3 text-rose-500">🌅 Warm Tone</span>
                   <label class="sw"><input type="checkbox" id="warmTog" onchange="applyFilters()"><div class="sw-track"></div><div class="sw-thumb"></div></label>
                 </div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 pt-2">
-                <div><div class="flex justify-between text-xs font-bold text-[var(--sub)] mb-2"><span>☀️ Brightness</span><span id="briV">100%</span></div><input type="range" id="briS" min="30" max="220" value="100" step="1" oninput="applyFilters()"></div>
-                <div><div class="flex justify-between text-xs font-bold text-[var(--sub)] mb-2"><span>◑ Contrast</span><span id="conV">100%</span></div><input type="range" id="conS" min="30" max="220" value="100" step="1" oninput="applyFilters()"></div>
-                <div><div class="flex justify-between text-xs font-bold text-[var(--sub)] mb-2"><span>🎨 Saturation</span><span id="satV">100%</span></div><input type="range" id="satS" min="0" max="300" value="100" step="1" oninput="applyFilters()"></div>
-                <div><div class="flex justify-between text-xs font-bold text-[var(--sub)] mb-2"><span>🔍 Sharpness (Kernel)</span><span id="shrV">0</span></div><input type="range" id="shrS" min="0" max="15" value="0" step="1" oninput="applyFilters()"></div>
-                <div><div class="flex justify-between text-xs font-bold text-[var(--sub)] mb-2"><span>↕ Skew Correction</span><span id="angV">0°</span></div><input type="range" id="angS" min="-45" max="45" value="0" step="0.5" oninput="applyFilters()"></div>
-                <div><div class="flex justify-between text-xs font-bold text-[var(--sub)] mb-2"><span>📐 Perspective X <span class="pro-badge">PRO</span></span><span id="perXV">0°</span></div><input type="range" id="perXS" min="-30" max="30" value="0" step="1" oninput="applyFilters()" disabled class="opacity-50 cursor-not-allowed"></div>
+                <div><div class="flex justify-between text-xs font-bold text-[var(--text)] mb-2"><span>☀️ Brightness</span><span id="briV">100%</span></div><input type="range" id="briS" min="30" max="220" value="100" step="1" oninput="applyFilters()"></div>
+                <div><div class="flex justify-between text-xs font-bold text-[var(--text)] mb-2"><span>◑ Contrast</span><span id="conV">100%</span></div><input type="range" id="conS" min="30" max="220" value="100" step="1" oninput="applyFilters()"></div>
+                <div><div class="flex justify-between text-xs font-bold text-[var(--text)] mb-2"><span>🎨 Saturation</span><span id="satV">100%</span></div><input type="range" id="satS" min="0" max="300" value="100" step="1" oninput="applyFilters()"></div>
+                <div><div class="flex justify-between text-xs font-bold text-[var(--text)] mb-2"><span>🔍 Sharpness</span><span id="shrV">0</span></div><input type="range" id="shrS" min="0" max="15" value="0" step="1" oninput="applyFilters()"></div>
+                <div><div class="flex justify-between text-xs font-bold text-[var(--text)] mb-2"><span>↕ Skew Correction</span><span id="angV">0°</span></div><input type="range" id="angS" min="-45" max="45" value="0" step="0.5" oninput="applyFilters()"></div>
             </div>
             
             <div class="flex justify-between items-center pt-4 border-t border-[var(--border)]">
-                <button onclick="resetFilters()" class="text-xs font-bold text-red-500 hover:text-red-700 btn"><i class="fa-solid fa-rotate-right mr-1"></i>Reset All Adjustments</button>
+                <button onclick="resetFilters()" class="text-xs font-bold text-red-500 hover:text-red-700 btn px-4 py-2"><i class="fa-solid fa-rotate-right mr-1"></i>Reset All Adjustments</button>
             </div>
         </div>
 
         <div id="prevPanel" class="rounded-2xl p-4 border border-[var(--border)] bg-[var(--card)] shadow-lg relative overflow-hidden">
-          <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-bl-xl z-10 shadow-md tracking-wider">STUDIO RENDER ENGINE</div>
+          <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-bl-xl z-10 shadow-md tracking-wider">LIVE HD</div>
           <div class="flex justify-between items-center mb-3">
-            <p class="text-xs font-black text-[var(--sub)] uppercase tracking-wider"><i class="fa-solid fa-tv mr-1"></i> Live High-Res Preview</p>
+            <p class="text-xs font-black text-[var(--text)] uppercase tracking-wider"><i class="fa-solid fa-tv mr-1"></i> Preview</p>
           </div>
-          <div class="locked-preview-container bg-gray-100 dark:bg-gray-900 shadow-inner p-1">
+          <div class="locked-preview-container bg-[var(--inp)] shadow-inner p-1">
              <canvas id="prevCanvas" class="rounded-lg shadow-sm"></canvas>
           </div>
         </div>
@@ -376,10 +355,10 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
         </button>
 
         <div id="backOpts" class="hidden-el grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <button id="bkSame" class="btn py-4 rounded-xl font-black flex flex-col items-center gap-2 text-xs bg-[var(--card)] border-2 border-[var(--border)] hover:border-blue-500 text-[var(--text)]"><div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center"><i class="fa-solid fa-crop text-xl text-blue-600"></i></div>Crop Same File</button>
-          <button onclick="document.getElementById('bkCam').click()" class="btn py-4 rounded-xl font-black flex flex-col items-center gap-2 text-xs bg-[var(--card)] border-2 border-[var(--border)] hover:border-indigo-500 text-[var(--text)]"><div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center"><i class="fa-solid fa-camera text-xl text-indigo-600"></i></div>Use Camera</button>
-          <button onclick="document.getElementById('bkFile').click()" class="btn py-4 rounded-xl font-black flex flex-col items-center gap-2 text-xs bg-[var(--card)] border-2 border-[var(--border)] hover:border-purple-500 text-[var(--text)]"><div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center"><i class="fa-solid fa-folder-open text-xl text-purple-600"></i></div>Upload File</button>
-          <button id="bkSkip" class="btn py-4 rounded-xl font-black flex flex-col items-center gap-2 text-xs bg-[var(--inp)] border-2 border-[var(--border)] hover:bg-gray-200 text-[var(--sub)]"><div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center"><i class="fa-solid fa-forward text-xl text-gray-500"></i></div>Skip Back Side</button>
+          <button id="bkSame" class="btn py-4 rounded-xl font-black flex flex-col items-center gap-2 text-xs bg-[var(--card)] border-2 border-[var(--border)] hover:border-blue-500 text-[var(--text)]"><div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center"><i class="fa-solid fa-crop text-2xl text-blue-600"></i></div>Crop Same</button>
+          <button onclick="document.getElementById('bkCam').click()" class="btn py-4 rounded-xl font-black flex flex-col items-center gap-2 text-xs bg-[var(--card)] border-2 border-[var(--border)] hover:border-indigo-500 text-[var(--text)]"><div class="w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center"><i class="fa-solid fa-camera text-2xl text-indigo-600"></i></div>Camera</button>
+          <button onclick="document.getElementById('bkFile').click()" class="btn py-4 rounded-xl font-black flex flex-col items-center gap-2 text-xs bg-[var(--card)] border-2 border-[var(--border)] hover:border-purple-500 text-[var(--text)]"><div class="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center"><i class="fa-solid fa-folder-open text-2xl text-purple-600"></i></div>Upload</button>
+          <button id="bkSkip" class="btn py-4 rounded-xl font-black flex flex-col items-center gap-2 text-xs bg-[var(--inp)] border-2 border-[var(--border)] hover:bg-[var(--border)] text-[var(--text)]"><div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center"><i class="fa-solid fa-forward text-2xl text-gray-500"></i></div>Skip Back</button>
         </div>
         <input type="file" id="bkCam" class="hidden" accept="image/*" capture="environment">
         <input type="file" id="bkFile" class="hidden" accept="application/pdf,image/jpeg,image/png,image/webp">
@@ -396,56 +375,56 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
         <div class="flex justify-between items-center pb-4 mb-4 border-b border-[var(--border)] shrink-0">
           <h3 class="font-black text-xl text-[var(--text)] flex items-center gap-2"><i class="fa-solid fa-layer-group text-indigo-500"></i> Print Queue</h3>
           <div class="flex items-center gap-3">
-              <span class="text-xs font-black bg-[var(--accl)] text-[var(--acc)] px-3 py-1 rounded-full shadow-inner"><span id="qCount">0</span> / <span id="qMax">10</span></span>
-              <button onclick="clearAll()" class="text-xs font-bold text-red-500 hover:text-red-700 bg-red-50 p-2 rounded-lg btn tooltip-btn" title="Clear Queue"><i class="fa-solid fa-trash"></i></button>
+              <span class="text-xs font-black bg-[var(--accl)] text-[var(--acc)] px-3 py-1.5 rounded-full shadow-inner"><span id="qCount">0</span> / <span id="qMax">10</span></span>
+              <button onclick="clearAll()" class="text-xs font-bold text-red-500 hover:text-red-700 bg-red-50 p-2.5 rounded-lg btn"><i class="fa-solid fa-trash"></i></button>
           </div>
         </div>
 
         <div class="overflow-y-auto scroll pr-2 flex-grow shrink space-y-4">
             <div class="bg-[var(--inp)] p-4 rounded-2xl border border-[var(--border)]">
-              <p class="text-[10px] font-black text-[var(--sub)] uppercase tracking-widest mb-3">Layout Engine</p>
+              <p class="text-[10px] font-black text-[var(--text)] uppercase tracking-widest mb-3">Layout Settings</p>
               
-              <div class="flex justify-between items-center mb-2">
-                 <span class="text-xs font-bold text-[var(--text)]">Columns per sheet:</span>
+              <div class="flex justify-between items-center mb-3">
+                 <span class="text-xs font-bold text-[var(--text)]">Columns:</span>
                  <div class="flex gap-1 bg-[var(--card)] p-1 rounded-lg border border-[var(--border)]">
-                    <button onclick="setIPR(1,this)" class="ids-btn rounded-md px-3 py-1 text-xs font-black text-[var(--sub)]">1</button>
-                    <button onclick="setIPR(2,this)" class="ids-btn rounded-md px-3 py-1 text-xs font-black bg-[var(--acc)] text-white shadow-md on">2</button>
-                    <button onclick="setIPR(3,this)" class="ids-btn rounded-md px-3 py-1 text-xs font-black text-[var(--sub)]">3</button>
+                    <button onclick="setIPR(1,this)" class="ids-btn rounded-md px-3 py-1.5 text-xs font-black text-[var(--text)] hover:bg-[var(--inp)]">1</button>
+                    <button onclick="setIPR(2,this)" class="ids-btn rounded-md px-3 py-1.5 text-xs font-black bg-[var(--acc)] text-white shadow-md on">2</button>
+                    <button onclick="setIPR(3,this)" class="ids-btn rounded-md px-3 py-1.5 text-xs font-black text-[var(--text)] hover:bg-[var(--inp)]">3</button>
                  </div>
               </div>
               
               <div class="flex justify-between items-center mb-3">
-                 <span class="text-xs font-bold text-[var(--text)]">Max IDs per page:</span>
+                 <span class="text-xs font-bold text-[var(--text)]">Max per page:</span>
                  <div class="flex gap-1 bg-[var(--card)] p-1 rounded-lg border border-[var(--border)]">
-                    <button onclick="setMaxIDs(5,this)" class="maxid-btn rounded-md px-2 py-1 text-xs font-black text-[var(--sub)]">5</button>
-                    <button onclick="setMaxIDs(10,this)" class="maxid-btn rounded-md px-2 py-1 text-xs font-black bg-[var(--acc)] text-white shadow-md on">10</button>
-                    <button onclick="setMaxIDs(20,this)" class="maxid-btn rounded-md px-2 py-1 text-xs font-black text-[var(--sub)]">20</button>
-                    <button onclick="setMaxIDs(99,this)" class="maxid-btn rounded-md px-2 py-1 text-xs font-black text-[var(--sub)]">∞</button>
+                    <button onclick="setMaxIDs(5,this)" class="maxid-btn rounded-md px-2.5 py-1.5 text-xs font-black text-[var(--text)] hover:bg-[var(--inp)]">5</button>
+                    <button onclick="setMaxIDs(10,this)" class="maxid-btn rounded-md px-2.5 py-1.5 text-xs font-black bg-[var(--acc)] text-white shadow-md on">10</button>
+                    <button onclick="setMaxIDs(20,this)" class="maxid-btn rounded-md px-2.5 py-1.5 text-xs font-black text-[var(--text)] hover:bg-[var(--inp)]">20</button>
+                    <button onclick="setMaxIDs(99,this)" class="maxid-btn rounded-md px-2.5 py-1.5 text-xs font-black text-[var(--text)] hover:bg-[var(--inp)]">∞</button>
                  </div>
               </div>
 
-              <div class="space-y-2 pt-2 border-t border-[var(--border)]">
-                <label class="flex items-center gap-3 text-xs font-bold text-[var(--text)] cursor-pointer group">
-                  <input type="checkbox" id="idBorderTog" onchange="updateA4()" class="w-4 h-4 rounded text-indigo-600 border-gray-300 focus:ring-indigo-500" checked>
-                  <span class="group-hover:text-indigo-600 transition-colors">🔲 Draw Solid Cutting Border</span>
+              <div class="space-y-3 pt-3 border-t border-[var(--border)]">
+                <label class="flex items-center gap-3 text-xs font-bold text-[var(--text)] cursor-pointer">
+                  <input type="checkbox" id="idBorderTog" onchange="updateA4()" class="w-5 h-5 rounded text-indigo-600 border-gray-300" checked>
+                  <span>🔲 Draw Solid Cutting Border</span>
                 </label>
-                <label class="flex items-center gap-3 text-xs font-bold text-[var(--text)] cursor-pointer group">
-                  <input type="checkbox" id="cutLinesTog" onchange="updateA4()" class="w-4 h-4 rounded text-indigo-600 border-gray-300 focus:ring-indigo-500">
-                  <span class="group-hover:text-indigo-600 transition-colors">✂️ Add Scissor Cut Marks</span>
+                <label class="flex items-center gap-3 text-xs font-bold text-[var(--text)] cursor-pointer">
+                  <input type="checkbox" id="cutLinesTog" onchange="updateA4()" class="w-5 h-5 rounded text-indigo-600 border-gray-300">
+                  <span>✂️ Add Scissor Cut Marks</span>
                 </label>
               </div>
             </div>
 
             <div class="bg-[var(--inp)] p-4 rounded-2xl border border-[var(--border)]">
-                <p class="text-[10px] font-black text-[var(--sub)] uppercase tracking-widest mb-3 flex justify-between">Export Quality <span class="pro-badge">PRO</span></p>
+                <p class="text-[10px] font-black text-[var(--text)] uppercase tracking-widest mb-3">Export Quality</p>
                 <div class="grid grid-cols-3 gap-2">
-                  <button onclick="setQ('std',this)" class="qbtn">Normal<br><span class="text-[9px] font-normal">Fast</span></button>
-                  <button onclick="setQ('hd',this)" class="qbtn">HD Print<br><span class="text-[9px] font-normal">300 DPI</span></button>
-                  <button onclick="setQ('4k',this)" class="qbtn on">Ultra 4K<br><span class="text-[9px] font-normal">Studio+</span></button>
+                  <button onclick="setQ('std',this)" class="qbtn hover:bg-[var(--card)]">Normal<br><span class="text-[10px] font-normal">Fast</span></button>
+                  <button onclick="setQ('hd',this)" class="qbtn hover:bg-[var(--card)]">HD Print<br><span class="text-[10px] font-normal">300 DPI</span></button>
+                  <button onclick="setQ('4k',this)" class="qbtn on">Ultra 4K<br><span class="text-[10px] font-normal">Studio+</span></button>
                 </div>
             </div>
 
-            <div id="emptyQ" class="text-center py-10 text-[var(--sub)] border-2 border-dashed border-[var(--border)] rounded-2xl bg-[var(--inp)]">
+            <div id="emptyQ" class="text-center py-10 text-[var(--text)] border-2 border-dashed border-[var(--border)] rounded-2xl bg-[var(--inp)]">
               <i class="fa-solid fa-box-open text-5xl mb-4 opacity-30 drop-shadow-md"></i>
               <p class="font-black text-sm uppercase tracking-wider">Queue is empty</p>
               <p class="text-xs mt-2 opacity-70 font-medium">Process an ID to build your print sheet</p>
@@ -455,7 +434,7 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
         </div>
 
         <div id="qBtns" class="mt-4 pt-4 border-t border-[var(--border)] shrink-0 hidden-el space-y-3">
-          <button id="addMoreBtn" onclick="resetForNext()" class="btn w-full py-3 rounded-xl font-black flex justify-center items-center gap-2 text-sm bg-[var(--accl)] text-[var(--acc)] border-2 border-[var(--acc)] shadow-sm hover:bg-[var(--acc)] hover:text-white group">
+          <button id="addMoreBtn" onclick="resetForNext()" class="btn w-full py-3.5 rounded-xl font-black flex justify-center items-center gap-2 text-sm bg-[var(--accl)] text-[var(--acc)] border-2 border-[var(--acc)] shadow-sm hover:bg-[var(--acc)] hover:text-white group">
             <i class="fa-solid fa-plus-circle text-lg group-hover:rotate-90 transition-transform"></i> Add Another Document
           </button>
           <button onclick="showExport()" class="btn w-full py-4 text-white rounded-xl font-black shadow-lg flex justify-center items-center gap-2 text-base bg-gradient-to-r from-emerald-500 to-green-600 hover:scale-[1.02] transition-transform">
@@ -465,10 +444,10 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
 
         <div id="a4wrap" class="mt-4 shrink-0 bg-[var(--inp)] rounded-2xl p-4 border border-[var(--border)]">
           <div class="flex justify-between items-center mb-3">
-            <p class="text-[10px] font-black text-[var(--sub)] uppercase tracking-widest"><i class="fa-regular fa-file-pdf mr-1 text-red-500"></i> A4 Layout Sheet</p>
+            <p class="text-[10px] font-black text-[var(--text)] uppercase tracking-widest"><i class="fa-regular fa-file-pdf mr-1 text-red-500"></i> A4 Layout Sheet</p>
             <span class="text-[10px] font-black bg-[var(--acc)] text-white px-2 py-0.5 rounded-full" id="a4info">Ready</span>
           </div>
-          <div class="w-full flex justify-center bg-gray-200 dark:bg-gray-800 p-3 rounded-xl border border-[var(--border)] shadow-inner">
+          <div class="w-full flex justify-center bg-[var(--border)] p-3 rounded-xl border border-[var(--border)] shadow-inner">
             <canvas id="a4Canvas" class="bg-white shadow-md rounded-sm transition-all" style="width: 100%; height: auto; max-width: 220px; aspect-ratio: 210/297; object-fit: contain;"></canvas>
           </div>
         </div>
@@ -481,15 +460,11 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
       <i class="fa-solid fa-check-double text-6xl text-green-500 drop-shadow-md"></i>
     </div>
     <h2 class="text-4xl md:text-5xl font-black tracking-tight text-[var(--text)] drop-shadow-sm">Masterpiece Ready!</h2>
-    <p class="font-bold max-w-md mx-auto text-[var(--sub)] text-sm md:text-base bg-[var(--inp)] p-4 rounded-2xl border border-[var(--border)]">Your documents have been perfectly processed with Studio-Grade 4K Quality. Choose your export method.</p>
+    <p class="font-bold max-w-md mx-auto text-[var(--text)] text-sm md:text-base bg-[var(--inp)] p-4 rounded-2xl border border-[var(--border)]">Your documents have been perfectly processed with Full Unlocked Studio Quality.</p>
 
     <div class="w-full max-w-sm mx-auto space-y-3 bg-[var(--card)] p-5 rounded-2xl border border-[var(--border)] shadow-sm">
         <p class="text-xs font-black text-left text-[var(--text)] uppercase tracking-wider"><i class="fa-solid fa-shield-halved text-indigo-500 mr-1"></i> Security Options</p>
-        <input type="text" id="finalWm" class="inp text-sm font-bold placeholder:font-medium" placeholder="Add confidential watermark text...">
-        <div class="flex gap-2">
-            <input type="password" id="pdfPass" class="inp text-sm font-bold flex-1 placeholder:font-medium pro-feature" placeholder="PDF Password (Pro)" disabled>
-            <button class="btn px-3 rounded-xl bg-amber-100 text-amber-700 font-bold text-xs border border-amber-200"><i class="fa-solid fa-crown mr-1"></i>UPGRADE</button>
-        </div>
+        <input type="text" id="finalWm" class="inp text-sm font-bold" placeholder="Add confidential watermark text...">
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-4xl mx-auto mt-8 w-full">
@@ -509,7 +484,7 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
         <i class="fa-solid fa-images text-3xl drop-shadow-md"></i>Save PNG
       </button>
       <button onclick="doShare()" class="btn py-5 rounded-2xl font-black flex flex-col items-center justify-center gap-3 text-sm bg-[var(--card)] text-[var(--text)] border-2 border-[var(--border)] hover:bg-[var(--inp)] hover:-translate-y-2 transition-transform">
-        <i class="fa-solid fa-share-nodes text-3xl text-[var(--sub)] drop-shadow-md"></i>Native Share
+        <i class="fa-solid fa-share-nodes text-3xl text-[var(--text)] drop-shadow-md"></i>Native Share
       </button>
     </div>
 
@@ -520,40 +495,34 @@ input[type=range]::-webkit-slider-runnable-track{width:100%;height:6px;cursor:po
     </div>
   </div>
 
-  <div class="p-4 border-t border-[var(--border)] text-center flex flex-col sm:flex-row justify-center items-center gap-3 text-xs bg-[var(--inp)] font-bold text-[var(--sub)]">
+  <div class="p-4 border-t border-[var(--border)] text-center flex flex-col sm:flex-row justify-center items-center gap-3 text-xs bg-[var(--inp)] font-bold text-[var(--text)]">
     <span class="flex items-center gap-1">Crafted with <i class="fa-solid fa-heart text-rose-500 animate-pulse"></i> by <strong class="font-black text-indigo-600 text-sm">KaifSalmani</strong></span>
     <span class="hidden sm:inline opacity-30">•</span>
     <a href="https://instagram.com/oyeeee_kaif" target="_blank" class="flex items-center gap-1 hover:text-pink-600 transition-colors"><i class="fa-brands fa-instagram text-base"></i>@oyeeee_kaif</a>
     <span class="hidden sm:inline opacity-30">•</span>
-    <span class="bg-[var(--card)] px-2 py-1 rounded-md border border-[var(--border)] shadow-sm">Beasy Crop v4.0 Ultimate</span>
+    <span class="bg-[var(--card)] px-3 py-1.5 rounded-md border border-[var(--border)] shadow-sm">Beasy Crop v4.0 - Free</span>
   </div>
 </div>
 
 <script>
-[span_7](start_span)// ========== STATE & CONFIG [cite: 76-80] ==========
 const pdfjsLib=window['pdfjs-dist/build/pdf'];
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-let MAX_IDS=10, idQ=[], cropper=null, tFront=null, tBack=null, gBlob=null, gName='BeasyCrop_Pro_Doc';
+let MAX_IDS=10, idQ=[], cropper=null, tFront=null, tBack=null, gBlob=null, gName='BeasyCrop_Doc';
 let curRot=0, flipX=1, flipY=1, isBack=false, initZoom=1, isLocked=false;
 let curPreset={w:85.6,h:54,label:'Aadhar Card'}, exportQuality='4k', idsPerRow=2;
 let showPrev=true, showFilters=false;
 
-// History state
 let historyStack = [], historyIndex = -1;
-
 const Toast=Swal.mixin({toast:true,position:'top-end',showConfirmButton:false,timer:3000,timerProgressBar:true,customClass:{popup:'rounded-xl shadow-2xl font-bold'}});
 const ovl=document.getElementById('loadOvl');
 
-// Signature Pad Instance
 let sigPad = null;
-let currentOverlays = []; // {type:'signature', dataURL:..., w:..., h:...}
+let currentOverlays = []; 
 
-[cite_start]// Init theme[span_7](end_span)
 (function(){const t=localStorage.getItem('cm_theme')||'light';applyTheme(t)})();
 function toggleDark(){const c=document.documentElement.getAttribute('data-theme');const n=c==='dark'?'light':'dark';applyTheme(n);localStorage.setItem('cm_theme',n)}
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t);const ico=document.getElementById('darkIco');if(ico)ico.className=t==='dark'?'fa-solid fa-sun text-lg':'fa-solid fa-moon text-lg'}
 
-// ========== UNDO / REDO ENGINE ==========
 function saveState() {
     if(!cropper) return;
     const state = {
@@ -571,10 +540,9 @@ function saveState() {
         },
         overlays: JSON.parse(JSON.stringify(currentOverlays))
     };
-    // Drop future states if saving new
     historyStack = historyStack.slice(0, historyIndex + 1);
     historyStack.push(state);
-    if(historyStack.length > 15) historyStack.shift(); // Max 15 steps
+    if(historyStack.length > 15) historyStack.shift(); 
     else historyIndex++;
 }
 
@@ -613,13 +581,11 @@ function redo() {
     }
 }
 
-// Keyboard shortcuts
 document.addEventListener('keydown', function(e) {
     if (e.ctrlKey && e.key === 'z') { e.preventDefault(); undo(); }
     if (e.ctrlKey && e.key === 'y') { e.preventDefault(); redo(); }
 });
 
-[span_8](start_span)// ========== PRESETS & QUALITY [cite: 79-82] ==========
 function selPreset(btn,w,h,label){
   document.querySelectorAll('.preset').forEach(p=>{p.classList.remove('on')});
   btn.classList.add('on');
@@ -641,31 +607,29 @@ function setQ(q,btn){
 function setMaxIDs(n,btn){
   MAX_IDS=n;
   document.getElementById('qMax').innerText=n===99?'∞':n;
-  document.querySelectorAll('.maxid-btn').forEach(b=>{b.classList.remove('on','bg-[var(--acc)]','text-white','shadow-md'); b.classList.add('text-[var(--sub)]')});
-  btn.classList.remove('text-[var(--sub)]'); btn.classList.add('on','bg-[var(--acc)]','text-white','shadow-md');
+  document.querySelectorAll('.maxid-btn').forEach(b=>{b.classList.remove('on','bg-[var(--acc)]','text-white','shadow-md'); b.classList.add('text-[var(--text)]')});
+  btn.classList.remove('text-[var(--text)]'); btn.classList.add('on','bg-[var(--acc)]','text-white','shadow-md');
   document.getElementById('addMoreBtn').classList.toggle('hidden-el',idQ.length>=MAX_IDS);
 }
 
 function setIPR(n,btn){
   idsPerRow=n;
-  document.querySelectorAll('.ids-btn').forEach(b=>{b.classList.remove('on','bg-[var(--acc)]','text-white','shadow-md'); b.classList.add('text-[var(--sub)]')});
-  btn.classList.remove('text-[var(--sub)]'); btn.classList.add('on','bg-[var(--acc)]','text-white','shadow-md');
+  document.querySelectorAll('.ids-btn').forEach(b=>{b.classList.remove('on','bg-[var(--acc)]','text-white','shadow-md'); b.classList.add('text-[var(--text)]')});
+  btn.classList.remove('text-[var(--text)]'); btn.classList.add('on','bg-[var(--acc)]','text-white','shadow-md');
   updateA4();
 }
 
-[cite_start]// ========== HISTORY[span_8](end_span) ==========
 function openHist(){document.getElementById('hist').style.right='0';document.getElementById('hbdrop').classList.remove('hidden-el');renderHist()}
 function closeHist(){document.getElementById('hist').style.right='-400px';document.getElementById('hbdrop').classList.add('hidden-el')}
 function saveHist(q){if(!q.length)return;let h=JSON.parse(localStorage.getItem('cm_v4_hist')||'[]');h.unshift({ts:Date.now(),count:q.length,thumb:q[0].front,label:curPreset.label});if(h.length>10)h=h.slice(0,10);localStorage.setItem('cm_v4_hist',JSON.stringify(h))}
 function renderHist(){
   const el=document.getElementById('histList');
   const h=JSON.parse(localStorage.getItem('cm_v4_hist')||'[]');
-  if(!h.length){el.innerHTML='<p class="text-sm text-center py-8 text-[var(--sub)] border border-dashed rounded-xl bg-[var(--inp)]">No sessions recorded yet.</p>';return}
-  el.innerHTML=h.map((x,i)=>`<div class="qitem flex items-center gap-4 bg-[var(--card)]"><img src="${x.thumb}" class="w-14 h-10 object-cover rounded-md border border-[var(--border)]"><div class="flex-1"><p class="text-sm font-black text-[var(--text)]">${x.label||'ID Document'}</p><p class="text-[10px] font-bold text-[var(--sub)] uppercase">${new Date(x.ts).toLocaleString()} • ${x.count} doc(s)</p></div><span class="text-xs font-black bg-indigo-50 text-indigo-600 px-2 py-1 rounded-lg">#${i+1}</span></div>`).join('')
+  if(!h.length){el.innerHTML='<p class="text-sm text-center py-8 text-[var(--text)] border border-dashed rounded-xl bg-[var(--inp)]">No sessions recorded yet.</p>';return}
+  el.innerHTML=h.map((x,i)=>`<div class="qitem flex items-center gap-4 bg-[var(--card)]"><img src="${x.thumb}" class="w-14 h-10 object-cover rounded-md border border-[var(--border)]"><div class="flex-1"><p class="text-sm font-black text-[var(--text)]">${x.label||'ID Document'}</p><p class="text-[10px] font-bold text-[var(--sub)] uppercase">${new Date(x.ts).toLocaleString()} • ${x.count} doc(s)</p></div><span class="text-xs font-black bg-[var(--accl)] text-[var(--acc)] px-2 py-1 rounded-lg">#${i+1}</span></div>`).join('')
 }
 function clearHist(){localStorage.removeItem('cm_v4_hist');renderHist();Toast.fire({icon:'success',title:'History erased securely'})}
 
-[cite_start]// ========== FILE INPUT & CLIPBOARD [cite: 84-89] ==========
 async function pasteFromClipboard(){
   try{
     const items=await navigator.clipboard.read();
@@ -702,7 +666,7 @@ function processFile(file){
     r.onload=async e=>{
       const pdf=await pdfjsLib.getDocument({data:e.target.result}).promise;
       const pg=await pdf.getPage(1);
-      const vp=pg.getViewport({scale:4.0}); // v4: Increased scale for better PDF quality
+      const vp=pg.getViewport({scale:4.0});
       const cv=document.createElement('canvas');
       cv.width=vp.width;cv.height=vp.height;
       await pg.render({canvasContext:cv.getContext('2d'),viewport:vp}).promise;
@@ -716,7 +680,6 @@ function processFile(file){
   }
 }
 
-[cite_start]// ========== CROPPER SETUP [cite: 90-91] ==========
 function setupCropper(url){
   document.getElementById('upArea').classList.add('hidden-el');
   document.getElementById('wsArea').classList.remove('hidden-el');
@@ -728,13 +691,17 @@ function setupCropper(url){
   
   if(cropper)cropper.destroy();
   const ratio=curPreset.w&&curPreset.h?curPreset.w/curPreset.h:NaN;
-  cropper=new Cropper(document.getElementById('imgToCrop'),{
+  
+  const imgElement = document.getElementById('imgToCrop');
+  
+  cropper=new Cropper(imgElement,{
     viewMode:1,dragMode:'move',aspectRatio:ratio,autoCropArea:0.75,
-    zoomable:true,scalable:true,responsive:true,guides:true, background: false,
+    zoomable:true,scalable:true,responsive:true,guides:true, background: false, checkCrossOrigin: false,
     ready(){
       initZoom=cropper.getImageData().width/cropper.getImageData().naturalWidth;
       setStep(1);hideLoader();
-      saveState(); // Initial state
+      saveState();
+      if(showPrev)updatePrev();
     },
     cropend() { saveState(); if(showPrev)updatePrev(); },
     zoom() { if(showPrev)updatePrev(); },
@@ -762,12 +729,11 @@ function setStep(s){
     const isDone=i<s,isAct=i===s;
     if(isDone){d.className='w-8 h-8 rounded-full flex items-center justify-center text-sm font-black bg-green-500 text-white shadow-md';d.innerHTML='<i class="fa-solid fa-check"></i>'}
     else if(isAct){d.className='w-8 h-8 rounded-full flex items-center justify-center text-sm font-black bg-[var(--acc)] text-white shadow-[0_0_0_4px_var(--accl)]'}
-    else{d.className='w-8 h-8 rounded-full flex items-center justify-center text-sm font-black bg-[var(--border)] text-[var(--sub)]'}
+    else{d.className='w-8 h-8 rounded-full flex items-center justify-center text-sm font-black bg-[var(--border)] text-[var(--text)]'}
   }
   for(let i=1;i<=2;i++){const l=document.getElementById('sl'+i);l.className='flex-1 h-1.5 rounded-full transition-all '+(i<s?'bg-green-500':'bg-[var(--border)]')}
 }
 
-[cite_start]// ========== V4 ADVANCED FILTERS [cite: 94-98] ==========
 function togFilters(){showFilters=!showFilters;document.getElementById('filterPanel').classList.toggle('hidden-el',!showFilters)}
 
 function applyFilters(recordHistory = true){
@@ -804,7 +770,7 @@ function applySmartEnhance() {
     document.getElementById('briS').value = 112;
     document.getElementById('conS').value = 120;
     document.getElementById('satS').value = 110;
-    document.getElementById('shrS').value = 3; // Add sharpness
+    document.getElementById('shrS').value = 3;
     applyFilters();
     Toast.fire({icon:'success',title:'✨ AI Smart Enhance Applied!'});
 }
@@ -814,7 +780,7 @@ function removeWhiteBG() {
     document.getElementById('conS').value = 150;
     document.getElementById('bwTog').checked = true;
     applyFilters();
-    Toast.fire({icon:'success',title:'📄 Auto White BG Applied (Grayscale High Contrast)'});
+    Toast.fire({icon:'success',title:'📄 Auto White BG Applied'});
 }
 
 function togMagic(){
@@ -830,14 +796,13 @@ function togVivid(){
 }
 function resetFilters(recordHistory = true){
   curRot=0;flipX=1;flipY=1;if(cropper)cropper.scaleX(1);
-  ['angS','perXS','shrS'].forEach(id=>document.getElementById(id).value=0);
+  ['angS','shrS'].forEach(id=>document.getElementById(id).value=0);
   ['briS','conS','satS'].forEach(id=>document.getElementById(id).value=100);
   ['bwTog','magicTog','vividTog','warmTog'].forEach(id=>{const el=document.getElementById(id);if(el)el.checked=false});
   currentOverlays = [];
   applyFilters(recordHistory);
 }
 
-// ========== V4 NEW TOOLS (Sign, Text) ==========
 function openSigPad() {
     document.getElementById('sigModal').classList.remove('hidden-el');
     if(!sigPad) {
@@ -853,7 +818,7 @@ function applySignature() {
     closeSigPad();
     if(showPrev) updatePrev();
     saveState();
-    Toast.fire({icon:'success',title:'Signature added to document center'});
+    Toast.fire({icon:'success',title:'Signature added to document'});
 }
 
 async function addTextOverlay() {
@@ -872,23 +837,24 @@ async function addTextOverlay() {
     }
 }
 
-[cite_start]// ========== TRANSFORM [cite: 107-113] ==========
 function straighten(){ if(!cropper)return; document.getElementById('angS').value=0; applyFilters(); Toast.fire({icon:'info',title:'📐 Angle reset'}) }
 function rotImg(deg){if(cropper){curRot+=deg;applyFilters()}}
 function flipImg(){if(cropper){flipX=flipX===1?-1:1;cropper.scaleX(flipX);saveState()}}
+
 function setCropMode(m){
   if(!cropper)return;
   if(m==='lock'){
     const r=curPreset.w&&curPreset.h?curPreset.w/curPreset.h:85.6/54;
     cropper.setAspectRatio(r);
-    document.getElementById('mLock').className='px-3 py-1.5 text-xs font-bold rounded-lg bg-[var(--card)] text-[var(--acc)] shadow-sm border border-[var(--border)]';
-    document.getElementById('mFree').className='px-3 py-1.5 text-xs font-bold rounded-lg text-[var(--sub)] hover:text-[var(--text)]';
+    document.getElementById('mLock').className='px-4 py-2 text-xs font-bold rounded-lg bg-[var(--card)] text-[var(--acc)] shadow-sm border border-[var(--border)]';
+    document.getElementById('mFree').className='px-4 py-2 text-xs font-bold rounded-lg text-[var(--text)] hover:text-[var(--acc)]';
   }else{
     cropper.setAspectRatio(NaN);
-    document.getElementById('mFree').className='px-3 py-1.5 text-xs font-bold rounded-lg bg-[var(--card)] text-[var(--acc)] shadow-sm border border-[var(--border)]';
-    document.getElementById('mLock').className='px-3 py-1.5 text-xs font-bold rounded-lg text-[var(--sub)] hover:text-[var(--text)]';
+    document.getElementById('mFree').className='px-4 py-2 text-xs font-bold rounded-lg bg-[var(--card)] text-[var(--acc)] shadow-sm border border-[var(--border)]';
+    document.getElementById('mLock').className='px-4 py-2 text-xs font-bold rounded-lg text-[var(--text)] hover:text-[var(--acc)]';
   }
 }
+
 function centerBox(){
   if(!cropper)return;
   const img=cropper.getImageData(),box=cropper.getCropBoxData();
@@ -932,12 +898,11 @@ function togLock(){
   }
 }
 
-[cite_start]// ========== LIVE PREVIEW [cite: 100-104] ==========
 function togPrev(){
   showPrev=!showPrev;
   document.getElementById('prevPanel').classList.toggle('hidden-el',!showPrev);
   const btn=document.getElementById('prevBtn');
-  btn.className = showPrev ? 'btn px-5 py-2 rounded-xl text-sm font-bold border-2 border-[var(--acc)] text-[var(--acc)] bg-[var(--accl)] tooltip-btn' : 'btn px-5 py-2 rounded-xl text-sm font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)] tooltip-btn';
+  btn.className = showPrev ? 'btn px-6 py-3 rounded-xl text-sm font-bold border-2 border-[var(--acc)] text-[var(--acc)] bg-[var(--accl)]' : 'btn px-6 py-3 rounded-xl text-sm font-bold border border-[var(--border)] bg-[var(--inp)] text-[var(--text)]';
   if(showPrev)updatePrev();
 }
 
@@ -945,14 +910,13 @@ function updatePrev(){
   if(!cropper||!showPrev)return;
   try{
     const ratio = curPreset.w && curPreset.h ? curPreset.w/curPreset.h : 85.6/54;
-    const pW = 1000; const pH = Math.round(pW / ratio); // Higher res preview
+    const pW = 1000; const pH = Math.round(pW / ratio);
     const cv = cropper.getCroppedCanvas({width: pW, height: pH, imageSmoothingEnabled:true, imageSmoothingQuality:'high'});
     if(!cv)return;
     const pc=document.getElementById('prevCanvas');
     pc.width=cv.width;pc.height=cv.height;
     const ctx=pc.getContext('2d');
     
-    // Apply filters
     const bri=document.getElementById('briS').value||100;
     const con=document.getElementById('conS').value||100;
     const sat=document.getElementById('satS').value||100;
@@ -960,7 +924,6 @@ function updatePrev(){
     ctx.filter=`brightness(${bri}%) contrast(${con}%) saturate(${sat}%)${bw?' grayscale(100%)':''}`;
     ctx.drawImage(cv,0,0);
     
-    // Draw overlays (Signatures, Text)
     drawOverlays(ctx, cv.width, cv.height);
   }catch(e){}
 }
@@ -971,23 +934,18 @@ function drawOverlays(ctx, w, h) {
         if (ol.type === 'signature') {
             const img = new Image();
             img.src = ol.src;
-            // Draw signature centered, scaled nicely
             const sW = w * 0.4; const sH = sW * (img.height / img.width);
-            ctx.drawImage(img, (w - sW)/2, (h - sH)/2 + (h * 0.2), sW, sH); // Slightly bottom center
+            ctx.drawImage(img, (w - sW)/2, (h - sH)/2 + (h * 0.2), sW, sH);
         } else if (ol.type === 'text') {
             ctx.save();
-            ctx.fillStyle = 'rgba(220, 38, 38, 0.8)'; // Red stamp look
+            ctx.fillStyle = 'rgba(220, 38, 38, 0.8)';
             const fs = Math.floor(w / 12);
             ctx.font = `900 ${fs}px Plus Jakarta Sans`;
             ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-            // Draw slightly angled
             ctx.translate(w/2, h/2); ctx.rotate(-Math.PI/12);
-            // Add border to text for stamp effect
             ctx.lineWidth = 4; ctx.strokeStyle = 'white';
             ctx.strokeText(ol.text, 0, 0);
             ctx.fillText(ol.text, 0, 0);
-            
-            // Draw stamp box
             ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(220, 38, 38, 0.8)';
             const tw = ctx.measureText(ol.text).width;
             ctx.strokeRect(-tw/2 - 20, -fs/2 - 20, tw + 40, fs + 40);
@@ -996,21 +954,23 @@ function drawOverlays(ctx, w, h) {
     });
 }
 
-[cite_start]// ========== V4 HIGH-RES RENDER ENGINE [cite: 114-119] ==========
 function getCanvas(){
-  // V4 Ultra High Res Options
   const qMap={std:{w:1200,h:750}, hd:{w:2400,h:1500}, '4k':{w:4800,h:3000}};
   let dims=qMap[exportQuality]||qMap['4k'];
   
-  if(!curPreset.w) { // Custom ratio handling
-      const rawW = cropper.getCroppedCanvas().width;
-      const rawH = cropper.getCroppedCanvas().height;
+  const rawCv = cropper.getCroppedCanvas();
+  if(!rawCv) return null;
+
+  if(!curPreset.w) {
+      const rawW = rawCv.width;
+      const rawH = rawCv.height;
       const aspect = rawW / rawH;
       dims = {w: dims.w, h: dims.w / aspect};
   }
 
   const raw=cropper.getCroppedCanvas({...dims,fillColor:'#fff',imageSmoothingEnabled:true,imageSmoothingQuality:'high'});
-  
+  if(!raw) return null;
+
   const bri=document.getElementById('briS').value||100;
   const con=document.getElementById('conS').value||100;
   const sat=document.getElementById('satS').value||100;
@@ -1027,17 +987,16 @@ function getCanvas(){
   
   ctx.filter=f;ctx.drawImage(raw,0,0);
   
-  // V4 Sharpness Kernel
   if(shr>0){
       ctx.filter='none';
       const id=ctx.getImageData(0,0,fc.width,fc.height);
-      applySharp(id,shr/10); // scale level
+      applySharp(id,shr/10); 
       ctx.putImageData(id,0,0);
   }
   
   drawOverlays(ctx, fc.width, fc.height);
   
-  return fc.toDataURL('image/jpeg',1.0); // 1.0 Quality
+  return fc.toDataURL('image/jpeg',1.0); 
 }
 
 function applySharp(imageData,level){
@@ -1050,11 +1009,11 @@ function applySharp(imageData,level){
   }
 }
 
-[cite_start]// ========== CROP PIPELINE [cite: 120-124] ==========
 document.getElementById('cropFrontBtn').addEventListener('click',()=>{
-  showLoader('Rendering 4K Front...','Applying studio filters');
+  showLoader('Rendering Front...','Applying studio filters');
   setTimeout(() => {
       tFront=getCanvas();
+      if(!tFront) { hideLoader(); return Toast.fire({icon:'error',title:'Crop failed!'}); }
       document.getElementById('instrTxt').innerText='Process BACK Side';
       setStep(2);
       document.getElementById('cropFrontBtn').classList.add('hidden-el');
@@ -1077,7 +1036,7 @@ document.getElementById('bkSame').addEventListener('click',()=>{
 document.getElementById('bkSkip').addEventListener('click',()=>{tBack=null;addQ()});
 
 document.getElementById('cropBackBtn').addEventListener('click',()=>{
-  showLoader('Rendering 4K Back...','Finalizing document pair');
+  showLoader('Rendering Back...','Finalizing document pair');
   setTimeout(() => {
       tBack=getCanvas();
       addQ();
@@ -1114,8 +1073,8 @@ function updateQUI(){
     div.draggable=true;div.dataset.idx=i;
     div.innerHTML=`
       <div class="flex items-center gap-3 min-w-0">
-        <i class="fa-solid fa-grip-vertical text-xl text-gray-300 hover:text-indigo-400 transition-colors"></i>
-        <div class="flex flex-col items-center mr-1"><span class="text-[10px] font-black text-indigo-500 bg-indigo-50 px-2 py-0.5 rounded-full mb-1">#${i+1}</span></div>
+        <i class="fa-solid fa-grip-vertical text-xl text-[var(--sub)] hover:text-indigo-400 transition-colors"></i>
+        <div class="flex flex-col items-center mr-1"><span class="text-[10px] font-black text-[var(--acc)] bg-[var(--accl)] px-2 py-0.5 rounded-full mb-1">#${i+1}</span></div>
         <div class="relative group">
             <span class="absolute -top-2 -left-2 bg-black text-white text-[8px] font-bold px-1.5 py-0.5 rounded-sm z-10">F</span>
             <img src="${item.front}" class="h-12 w-20 object-cover rounded-lg shadow-sm border border-[var(--border)] group-hover:scale-110 transition-transform origin-left">
@@ -1126,8 +1085,8 @@ function updateQUI(){
         </div>
       </div>
       <div class="flex items-center gap-2 flex-shrink-0">
-        <button onclick="previewItem(${i})" class="w-8 h-8 rounded-full bg-blue-50 text-blue-500 hover:bg-blue-500 hover:text-white flex items-center justify-center transition-colors shadow-sm"><i class="fa-solid fa-expand text-xs"></i></button>
-        <button onclick="removeItem(${item.id})" class="w-8 h-8 rounded-full bg-red-50 text-red-500 hover:bg-red-500 hover:text-white flex items-center justify-center transition-colors shadow-sm"><i class="fa-solid fa-trash text-xs"></i></button>
+        <button onclick="previewItem(${i})" class="w-10 h-10 rounded-full bg-[var(--accl)] text-[var(--acc)] hover:bg-[var(--acc)] hover:text-white flex items-center justify-center transition-colors shadow-sm"><i class="fa-solid fa-expand text-sm"></i></button>
+        <button onclick="removeItem(${item.id})" class="w-10 h-10 rounded-full bg-red-50 text-red-500 hover:bg-red-500 hover:text-white flex items-center justify-center transition-colors shadow-sm"><i class="fa-solid fa-trash text-sm"></i></button>
       </div>`;
     div.addEventListener('dragstart',()=>{dragSrc=i;div.classList.add('dragging')});
     div.addEventListener('dragend',()=>div.classList.remove('dragging'));
@@ -1151,32 +1110,31 @@ window.previewItem=function(i){
       title:`<span class="font-black text-indigo-600">Document #${i+1} Viewer</span>`,
       width: '800px',
       html:`<div class="flex gap-4 justify-center flex-wrap mt-2">
-      <div class="flex flex-col items-center bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-inner">
-          <p class="text-xs font-black mb-3 tracking-widest text-gray-500 bg-white px-3 py-1 rounded-full shadow-sm"><i class="fa-solid fa-id-card text-indigo-500 mr-1"></i> FRONT SIDE</p>
-          <img src="${item.front}" class="max-h-[300px] object-contain rounded-xl shadow-lg border-2 border-indigo-500">
+      <div class="flex flex-col items-center bg-[var(--inp)] p-4 rounded-xl border border-[var(--border)] shadow-inner">
+          <p class="text-xs font-black mb-3 tracking-widest text-[var(--sub)] bg-[var(--card)] px-3 py-1 rounded-full shadow-sm"><i class="fa-solid fa-id-card text-[var(--acc)] mr-1"></i> FRONT SIDE</p>
+          <img src="${item.front}" class="max-h-[300px] object-contain rounded-xl shadow-lg border-2 border-[var(--acc)]">
       </div>
       ${item.back?`
-      <div class="flex flex-col items-center bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-inner">
-          <p class="text-xs font-black mb-3 tracking-widest text-gray-500 bg-white px-3 py-1 rounded-full shadow-sm"><i class="fa-solid fa-id-card text-emerald-500 mr-1"></i> BACK SIDE</p>
+      <div class="flex flex-col items-center bg-[var(--inp)] p-4 rounded-xl border border-[var(--border)] shadow-inner">
+          <p class="text-xs font-black mb-3 tracking-widest text-[var(--sub)] bg-[var(--card)] px-3 py-1 rounded-full shadow-sm"><i class="fa-solid fa-id-card text-emerald-500 mr-1"></i> BACK SIDE</p>
           <img src="${item.back}" class="max-h-[300px] object-contain rounded-xl shadow-lg border-2 border-emerald-500">
       </div>`:''}</div>`,
       confirmButtonColor:'#4f46e5',
       confirmButtonText:'<i class="fa-solid fa-check"></i> Looks Good',
-      customClass:{popup:'rounded-3xl'}
+      customClass:{popup:'rounded-3xl bg-[var(--card)]'}
   });
 };
 
-[cite_start]// ========== A4 LIVE SHEET [cite: 125-130] ==========
 function updateA4(){
   const cv=document.getElementById('a4Canvas');
-  const sc=2,ppm=3.78*sc; // Higher scale for sharper UI preview
+  const sc=2,ppm=3.78*sc;
   cv.width=210*ppm;cv.height=297*ppm;
   const ctx=cv.getContext('2d');
   ctx.fillStyle='#fff';ctx.fillRect(0,0,cv.width,cv.height);
   if(!idQ.length){ document.getElementById('a4info').innerText='Empty Sheet'; return; }
   
   const iW=(curPreset.w||85.6)*ppm,iH=(curPreset.h||54)*ppm;
-  const gapX=5*ppm,gapY=5*ppm; // Better spacing for v4
+  const gapX=5*ppm,gapY=5*ppm; 
   const totalW=idsPerRow*iW+(idsPerRow-1)*gapX;
   const mX=(210*ppm-totalW)/2,mY=10*ppm;
   let col=0,row=0;
@@ -1196,8 +1154,6 @@ function updateA4(){
             ctx.setLineDash([8, 8]); ctx.strokeStyle='#64748b'; ctx.lineWidth=2; 
             const offset = idBorder ? 4 : 0;
             ctx.strokeRect(x-offset,y-offset,iW+offset*2,iH+offset*2);
-            
-            // Draw Scissor icon (simple paths)
             ctx.fillStyle = '#64748b'; ctx.font = `${10*sc}px sans-serif`; ctx.fillText('✂', x-offset-5*sc, y-offset-2*sc);
         }
       };
@@ -1231,9 +1187,8 @@ function clearAll(){idQ=[];gBlob=null;updateQUI();updateA4();resetForNext()}
 function showExport(){document.getElementById('appGrid').classList.add('hidden-el');document.getElementById('exportArea').classList.remove('hidden-el')}
 function closeExport(){clearAll();document.getElementById('exportArea').classList.add('hidden-el');document.getElementById('appGrid').classList.remove('hidden-el')}
 
-function mkName(){const d=new Date();const p=n=>n.toString().padStart(2,'0');return`BeasyCrop_v4_${p(d.getDate())}-${p(d.getMonth()+1)}-${d.getFullYear()}_${p(d.getHours())}-${p(d.getMinutes())}`}
+function mkName(){const d=new Date();const p=n=>n.toString().padStart(2,'0');return`BeasyCrop_${p(d.getDate())}-${p(d.getMonth()+1)}-${d.getFullYear()}_${p(d.getHours())}-${p(d.getMinutes())}`}
 
-[cite_start]// ========== PDF GEN (300 DPI) [cite: 138-141] ==========
 function drawPDF(doc){
   const iW=curPreset.w||85.6,iH=curPreset.h||54;
   const gX=5,gY=5,mY=10;
@@ -1249,8 +1204,7 @@ function drawPDF(doc){
       if(!src)return;
       const x=mX+col*(iW+gX),y=mY+row*(iH+gY);
       
-      // V4: Use higher compression & quality settings in jsPDF
-      doc.addImage(src,'JPEG',x,y,iW,iH,undefined,'FAST'); // FAST compression for web, image itself is high res
+      doc.addImage(src,'JPEG',x,y,iW,iH,undefined,'FAST');
       
       if(idBorder){ doc.setDrawColor(0,0,0); doc.setLineWidth(0.4); doc.rect(x,y,iW,iH); }
       if(cutLines) { 
@@ -1264,7 +1218,6 @@ function drawPDF(doc){
     });
   });
   
-  // Apply final page watermark
   const wm=(document.getElementById('finalWm')?.value||'').trim();
   if(wm){
       const totalPages = doc.internal.getNumberOfPages();
@@ -1273,13 +1226,11 @@ function drawPDF(doc){
           doc.setTextColor(200, 200, 200);
           doc.setFontSize(80);
           doc.setFont('helvetica', 'bold');
-          // Rotate text
           doc.text(wm.toUpperCase(), 105, 148, { angle: 45, align: 'center', opacity: 0.3 });
       }
   }
 }
 
-[cite_start]// ========== EXPORT ACTIONS [cite: 142-154] ==========
 async function doPrint(){
   showLoader('Compiling Print Spooler...','Rendering High DPI...');
   setTimeout(()=>{
@@ -1301,7 +1252,7 @@ async function doExport(fmt){
       showCancelButton:true,
       confirmButtonText:'<i class="fa-solid fa-download"></i> Download High-Res',
       confirmButtonColor:'#4f46e5',
-      customClass:{popup:'rounded-3xl shadow-2xl',input:'rounded-xl text-center font-bold bg-gray-50 border-2 focus:border-indigo-500'}
+      customClass:{popup:'rounded-3xl shadow-2xl bg-[var(--card)]',input:'rounded-xl text-center font-bold bg-[var(--inp)] text-[var(--text)] border-2 focus:border-indigo-500'}
   });
   if(!name)return;
   showLoader(`Generating Studio ${fmt.toUpperCase()}...`,`Quality Profile: ${exportQuality.toUpperCase()}`);
@@ -1313,8 +1264,7 @@ async function doExport(fmt){
       drawPDF(doc);
       gBlob=doc.output('blob');gName=name;doc.save(`${name}.pdf`);
     }else{
-      // Generate 300 DPI canvas for image export
-      const ppm=11.811; // 300 DPI conversion factor
+      const ppm=11.811; 
       const cv=document.createElement('canvas');cv.width=2480;cv.height=3508;
       const ctx=cv.getContext('2d');
       ctx.fillStyle='#fff';ctx.fillRect(0,0,cv.width,cv.height);
@@ -1357,7 +1307,6 @@ async function doExport(fmt){
     }
     hideLoader();
     
-    // Confetti Celebration
     confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, colors: ['#4f46e5', '#10b981', '#f59e0b'] });
     Toast.fire({icon:'success',title:`✅ Success: ${name}.${fmt} saved!`});
   },100);
@@ -1380,7 +1329,6 @@ async function doShare(){
   else Swal.fire('Not Supported','Your browser/device does not support native sharing. Try saving the PDF/JPG instead.','info');
 }
 
-[cite_start]// ========== V4 P2P FASTSHARE ENGINE [cite: 155-167] ==========
 let peer=null,pId=null,qr2=null,isSender=false;
 function getStableId(){let id=localStorage.getItem('cm_v4_peer');if(!id){id='BC4-'+Math.random().toString(36).substr(2,8).toUpperCase();localStorage.setItem('cm_v4_peer',id)}return id}
 
@@ -1407,8 +1355,6 @@ function initPeer(){
       document.getElementById('qrBox').innerHTML='';
       new QRCode(document.getElementById('qrBox'),{text:url,width:220,height:220,colorDark:'#4f46e5',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
       document.getElementById('recvLoad').classList.add('hidden-el');
-    }else {
-        // Init sender logic here if needed beyond QR scanning
     }
   });
   peer.on('connection',c=>setupRecv(c));
@@ -1446,7 +1392,6 @@ window.closeModals=function(){
 };
 window.copyTxt=function(id){navigator.clipboard.writeText(document.getElementById(id).value);Toast.fire({icon:'success',title:'Link Copied! 📋'})};
 
-// V4 Send Logic implemented purely via standard Web Share / PDF generation fallback above. P2P sending uses same PeerJS flow (omitted large UI to save HTML space, relying on receiving PC link generation).
 async function openSend() {
     if(!idQ.length){Swal.fire('Empty Queue','Process at least one document first to share to PC.','warning');return}
     showLoader('Preparing Secure P2P Package...');
@@ -1460,7 +1405,8 @@ async function openSend() {
             inputPlaceholder: 'https://...',
             showCancelButton: true,
             confirmButtonText: '<i class="fa-solid fa-paper-plane"></i> Connect & Send',
-            confirmButtonColor: '#4f46e5'
+            confirmButtonColor: '#4f46e5',
+            customClass:{popup:'bg-[var(--card)]',input:'bg-[var(--inp)] text-[var(--text)]'}
         });
         if (url) {
             let tid=url; if(url.includes('?recv='))tid=new URL(url).searchParams.get('recv');
