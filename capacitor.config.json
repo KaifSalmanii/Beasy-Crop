@@ -1,0 +1,13 @@
+{
+  "appId": "com.kaifsalmani.beasycrop",
+  "appName": "Beasy Crop",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
