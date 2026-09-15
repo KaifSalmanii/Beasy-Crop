@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Beasy Crop</string>
+    <string name="title_activity_main">Beasy Crop</string>
+    <string name="package_name">com.kaifsalmani.beasycrop</string>
+    <string name="custom_url_scheme">com.kaifsalmani.beasycrop</string>
+</resources>
